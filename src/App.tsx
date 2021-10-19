@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
 
-function App() {
+interface State {
+  userName: string;
+  imageUrl: string;
+}
+
+const App: React.FC = () => {
+  const [state, setState] = useState<State>({
+    userName: 'John',
+    imageUrl: 'https://picsum.photos/600/150'
+  });
+
+const myStyles = {margin: 40};
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={myStyles}>
+      <h1>{state.userName}</h1>
+      <img src={state.imageUrl} alt="" />
     </div>
   );
 }
